@@ -1,0 +1,48 @@
+.blue_skew {
+    background: linear-gradient(45deg, $dark_blue 60%, $light_blue 100%);
+    padding: 30px;
+    transform: skewY(-5deg);
+    height: 800px;
+    position: relative;
+    z-index: -1;
+    @include center_elements();
+
+    @media only screen and(max-width: 550px) {
+        @include center_elements(false);
+        height: auto;
+    }
+
+    .content {
+        transform: skewY(5deg);
+    }
+
+    h2 {
+        font-weight: 400;
+        color: #fff;
+        margin-bottom: 20px;
+        margin-left: 30px;
+    }
+
+    ul {
+        @include center_between();
+        list-style: none;
+        flex-wrap: wrap;
+
+        @media only screen and(max-width: 550px) {
+            @include center_elements(false);
+        }
+
+        li {
+            width: 48%;
+            margin-bottom: 20px;
+
+            @media only screen and(max-width: 550px) {
+                width: 100%;
+            }
+
+            iframe {
+                width: 100%;
+            }
+        }
+    }
+}

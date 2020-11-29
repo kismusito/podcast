@@ -1,0 +1,40 @@
+.main_banner {
+    @include center_elements(false, "", flex-start);
+    height: 50vh;
+    padding-top: 60px;
+
+    @media only screen and(max-width: 550px) {
+        height: 80vh;
+    }
+
+    .banner_content {
+        width: 60%;
+        margin-bottom: 30px;
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 10px;
+        }
+
+        @media only screen and(max-width: 550px) {
+            width: 100%;
+
+            h1 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 12px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .tached_letter {
+        text-decoration: line-through;
+    }
+}

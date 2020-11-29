@@ -1,0 +1,35 @@
+$white: #fff;
+$light_blue: #0000ff;
+$dark_blue: #0000a3;
+$green: #00f3bb;
+$font_dark_color: #060a24;
+
+@mixin blue_overlay {
+    background: linear-gradient(40deg, $light_blue 100%, $dark_blue 100%);
+}
+
+@mixin center_elements($horizontal: false, $justify: "", $align: "") {
+    display: flex;
+
+    @if $horizontal {
+        flex-direction: row;
+    } @else {
+        flex-direction: column;
+    }
+
+    @if $justify == "" {
+        justify-content: center;
+    } @else {
+        justify-content: $justify;
+    }
+
+    @if $align == "" {
+        align-items: center;
+    } @else {
+        align-items: $align;
+    }
+}
+
+@mixin center_between {
+    @include center_elements(true, space-between, "");
+}

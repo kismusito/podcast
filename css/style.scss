@@ -84,8 +84,13 @@ a {
     flex-wrap: wrap;
 
     .grid_item {
-        width: calc(100vw / 3);
-        height: 300px;
+        width: calc(100% / 3);
+        height: 400px;
+        overflow: hidden;
+
+        @media only screen and(max-width: 800px) {
+            width: 50%;
+        }
 
         @media only screen and(max-width: 550px) {
             width: 100%;
@@ -95,6 +100,11 @@ a {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: .5s all;
+
+            &:hover {
+                transform: scale(1.1)
+            }
         }
     }
 }
@@ -118,14 +128,23 @@ a {
 
 .responsive_image_phone {
     width: 100%;
+    animation: 1s phone_animation infinite alternate linear;
+
+    @keyframes phone_animation {
+        to {
+            transform: translateY(-10px);
+        }
+    }
 }
 
 .our_topics {
     @include center_elements();
-    height: 350px;
+    height: auto;
+    width: 100%;
+    margin: 20px auto;
 
-    @media only screen and(max-width: 550px) {
-        height: auto;
+    @media only screen and(max-width: 800px) {
+        padding: 0 20px;
     }
 
     h2 {
@@ -140,19 +159,32 @@ a {
         padding: 30px 0;
         width: 100%;
 
-        @media only screen and(max-width: 550px) {
+        @media only screen and(max-width: 800px) {
+            flex-wrap: wrap;
             @include center_elements(false);
         }
 
         li {
             width: 20%;
+            padding: 5px;
             text-align: center;
+            transition: .5s all;
             @include center_elements();
+
+            @media only screen and(max-width: 800px) {
+                width: 50%;
+                margin: 20px 0;
+            }
 
             @media only screen and(max-width: 550px) {
                 width: 100%;
-                margin: 20px 0;
                 @include center_elements(false);
+            }
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.1);
+                box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.137);
             }
 
             p {
@@ -215,10 +247,20 @@ footer {
     @include center_between();
     height: 50px;
 
+    @media screen and (max-width: 550px) {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+    }
+
     .social_networks {
         ul {
             list-style: none;
             display: flex;
+
+            @media screen and (max-width: 550px) {
+                margin-top: 10px;
+            }
 
             li {
                 margin: 0 10px;

@@ -154,7 +154,9 @@ nav {
         .blue_skew ul li {
           width: 100%; } }
       .blue_skew ul li iframe {
-        width: 100%; }
+        width: 100%;
+        height: 156px;
+        border: 0; }
 
 body {
   min-height: 100vh;
